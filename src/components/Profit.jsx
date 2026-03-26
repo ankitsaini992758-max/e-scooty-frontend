@@ -65,6 +65,10 @@ const Profit = () => {
 
       <div className="overall-stats">
         <div className="stat-card">
+          <h3>Total Investment</h3>
+          <p className="stat-value">₹{(overall.totalInvestment || 0).toLocaleString()}</p>
+        </div>
+        <div className="stat-card">
           <h3>{overall.totalProfit >= 0 ? 'Total Profit' : 'Total Loss'}</h3>
           <p className={`stat-value ${overall.totalProfit >= 0 ? 'positive' : 'negative'}`}>
             ₹{Math.abs(overall.totalProfit).toLocaleString()}
@@ -96,6 +100,10 @@ const Profit = () => {
                 onClick={() => handleMonthClick(month._id)}
               >
                 <h4>{month._id}</h4>
+                <div className="stat-row">
+                  <span>Total Investment:</span>
+                  <p>₹{(month.totalInvestment || 0).toLocaleString()}</p>
+                </div>
                 <div className="stat-row">
                   <span>{month.totalProfit >= 0 ? 'Total Profit:' : 'Total Loss:'}</span>
                   <p className={`profit-value ${month.totalProfit >= 0 ? 'positive' : 'negative'}`}>
